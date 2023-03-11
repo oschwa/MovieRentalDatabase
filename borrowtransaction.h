@@ -1,6 +1,6 @@
 
-#ifndef BORROW_H
-#define BORROW_H
+#ifndef BORROWTRANSACTION_H
+#define BORROWTRANSACTION_H
 
 #include "transaction.h"
 #include "moviefactory.h"
