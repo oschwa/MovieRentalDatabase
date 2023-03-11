@@ -1,6 +1,3 @@
-//
-// Created by alexc on 3/10/2023.
-//
 
 #ifndef CLEANER_H
 #define CLEANER_H
