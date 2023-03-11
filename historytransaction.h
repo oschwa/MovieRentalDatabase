@@ -1,6 +1,6 @@
 
-#ifndef HISTORY_H
-#define HISTORY_H
+#ifndef HISTORYTRANSACTION_H
+#define HISTORYTRANSACTION_H
 
 #include "transaction.h"
 #include <fstream>
