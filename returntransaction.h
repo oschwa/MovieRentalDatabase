@@ -3,8 +3,8 @@ This class extends the transaction class, and is specifically a
 transaction to return a movie to the store
 */
 
-#ifndef RETURN_H
-#define RETURN_H
+#ifndef RETURNTRANSACTION_H
+#define RETURNTRANSACTION_H
 
 #include "transaction.h"
 #include "moviefactory.h"
