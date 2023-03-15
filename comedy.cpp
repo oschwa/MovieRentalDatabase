@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include "comedy.h"
-#include "globals.h"
+#include "cleaner.h"
 
 
 Comedy::Comedy(char genre){
