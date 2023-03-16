@@ -4,19 +4,26 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-//#include "Inventory.h"
 #include <cerrno>
+
+#include "Inventory.h"
+
 class DataReader
 {
+private:
+    Inventory * inventory;
 public:
+    DataReader();
     /**
      * DataReader Constructor that obtains instance of Inventory 
      * to be utilized.
      * @pre Requires instance of Inventory.
      * @post Creates instance of DataReader object.
-     * @param inventory Instance of Inventory.
+     * @param inv Instance of Inventory.
     */
-    DataReader();
+    DataReader(Inventory * inv);
+
+    ~DataReader();
     /**
      * Method for customer file reading and management of object creation.
      * @pre Requires valid file.
@@ -38,10 +45,6 @@ public:
      * @param in_file Object of type std::ifstream
     */
     void read_command_file(std::ifstream& in_file);
-private:
-    //Inventory reference that DataReader will utilize
-    //for object creation.
-    //Inventory &inventory;
 };
 
 #endif //DATAREADER_H

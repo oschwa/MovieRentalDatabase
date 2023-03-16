@@ -2,10 +2,19 @@
 #define DATAREADER_CPP
 
 #include "DataReader.h"
+#include "Inventory.h"
 
 DataReader::DataReader()
 {
+}
 
+DataReader::DataReader(Inventory * inventory)
+{
+    this->inventory = inventory;
+}
+
+DataReader::~DataReader()
+{
 }
 
 void DataReader::read_customer_file(std::ifstream &in_file)
@@ -138,6 +147,8 @@ void DataReader::read_movie_file(std::ifstream &in_file)
             std::cout << "What the algorithm read: " << int_stock << " " << direct_f_name << " "
                 << direct_l_name << " " << title << " " << actor_f_name << " " << actor_l_name << " "
                     << int_month << " " << int_year << std::endl;
+
+            inventory->build_movie(movie_type, int_stock, title, direct_f_name + " " + direct_l_name, actor_f_name + " " + actor_l_name, int_year, int_month);
         }
 
         else if (movie_type == 'D')
@@ -202,6 +213,7 @@ void DataReader::read_movie_file(std::ifstream &in_file)
             std::cout << int_stock << " " << direct_f_name << " " << direct_l_name 
                 << " " << title << " " << year << std::endl;
 
+            inventory->build_movie(movie_type, int_stock, title, direct_f_name + " " + direct_l_name, "", int_year, 0);
         }
 
         else if (movie_type == 'F')
@@ -266,6 +278,7 @@ void DataReader::read_movie_file(std::ifstream &in_file)
             std::cout << int_stock << " " << direct_f_name << " " << direct_l_name 
                 << " " << title << " " << year << std::endl;
 
+            inventory->build_movie(movie_type, int_stock, title, direct_f_name + " " + direct_l_name, "", int_year, 0);
         }
     }
     in_file.close();
@@ -359,6 +372,8 @@ void DataReader::read_command_file(std::ifstream& in_file)
                 std::cout << "B " << customer_id << "->" << product_type << "->"
                 << movie_type << "->" << month << "->" << year << "->" << actor_f_name << "->"
                     << actor_l_name << std::endl;
+
+                inventory->build_B_trans(command_type, customer_id, product_type, movie_type, month, year, actor_f_name + " " + actor_l_name);
             }
 
             else if (movie_type == 'F')
